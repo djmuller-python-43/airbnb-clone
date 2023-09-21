@@ -7,7 +7,16 @@ type Props = {}
 const Logo = (props: Props) => {
     const router = useRouter()
   return (
-    <Image src='/images/logo.png' alt="logo" className="hidden md:block cursor-pointer" width={100} height={100}/>
+    <Image 
+    onClick={() => router.push('/')}
+    src='/images/logo.png' alt="logo" 
+    className="
+    hidden 
+    md:block 
+    cursor-pointer
+    " 
+    width={100} 
+    height={100}/>
   )
 }
 

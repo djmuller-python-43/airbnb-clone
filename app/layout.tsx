@@ -3,6 +3,13 @@ import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import Navbar from './(shared)/Navbar/Navbar'
 
+import RegisterModal from './(shared)/Modal/RegisterModal'
+import LoginModal from './(shared)/Modal/LoginModal'
+import RentModal from './(shared)/Modal/RentModal'
+
+import getCurrentUser from './actions/getCurrentUser'
+import { Toaster } from 'react-hot-toast'
+
 const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -10,15 +17,20 @@ export const metadata: Metadata = {
   description: 'Airbnb clone',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const currentUser = await getCurrentUser()
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <Navbar />
+        <Toaster />
+        <RentModal />
+        <LoginModal />
+        <RegisterModal />
+        <Navbar currentUser={currentUser}/>
         {children}
       
       </body>
