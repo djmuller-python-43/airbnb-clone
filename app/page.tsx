@@ -1,17 +1,24 @@
 import Container from './(shared)/Container';
 import EmptyState from './(shared)/EmptyState';
+import ListingCard from './(shared)/Listing/ListingCard';
+
+import getCurrentUser from './actions/getCurrentUser';
+import getListings from './actions/getListings';
 
 
-export default function Home() {
-  const isEmpty = true
+export default async function Home() {
+  const listings = await getListings()
+  const currentUser = await getCurrentUser()
+  
 
-  if(isEmpty) {
+  if(listings.length === 0) {
     return (
       <EmptyState 
         showReset
       />
     )
   }
+
   return (
     <Container>
       <div 
@@ -26,9 +33,15 @@ export default function Home() {
           2xl:grid-cols-6
           gap-8
       '>
-        <div>
-          my future listings
-        </div>
+        {listings.map((listing: any) => {
+          return (
+           <ListingCard 
+            key={listing.id}
+            currentUser={currentUser}
+            data={listing}
+           />
+          )
+        })}
       </div>
     </Container>
   )
