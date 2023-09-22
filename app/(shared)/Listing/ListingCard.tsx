@@ -49,10 +49,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     return `${format(start, 'PP')} - ${format(end,'PP')}`
   },[reservation])
 
-  const handleCancel = useCallback(() => {
-    console.log('Fuck you!');
-    
-  },[])
+  
   
   return (
     <div
@@ -118,7 +115,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             disabled={disabled}
             small
             label={actionLabel}
-            onClick={handleCancel}
+            onClick={() => {}}
           />
         )}
       </div>
