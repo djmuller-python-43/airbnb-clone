@@ -56,6 +56,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
     onAction?.(actionId)
   }, [onAction, actionId, disabled])
+
+  
   return (
     <div
       onClick={() => router.push(`/listings/${data.id}`)}
