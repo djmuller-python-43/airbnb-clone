@@ -49,13 +49,16 @@ const ListingCard: React.FC<ListingCardProps> = ({
     return `${format(start, 'PP')} - ${format(end,'PP')}`
   },[reservation])
 
-  const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation()
+  const handleCancel = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
 
-    if (disabled) return
+    if (disabled) {
+      return;
+    }
 
     onAction?.(actionId)
-  }, [onAction, actionId, disabled])
+  }, [disabled, onAction, actionId]);
 
   
   return (
