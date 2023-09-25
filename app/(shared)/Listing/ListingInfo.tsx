@@ -70,7 +70,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             {roomCount} rooms
           </div>
           <div>
-            {bathroomCount} Bathroomss
+            {bathroomCount} Bathrooms
           </div>
         </div>
       </div>
