@@ -9,6 +9,7 @@ import RentModal from './(shared)/Modal/RentModal'
 
 import getCurrentUser from './actions/getCurrentUser'
 import { Toaster } from 'react-hot-toast'
+import SearchModal from './(shared)/Modal/SearchModal'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <Toaster />
+        <SearchModal />
         <RentModal />
         <LoginModal />
         <RegisterModal />

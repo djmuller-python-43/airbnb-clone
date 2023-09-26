@@ -3,11 +3,15 @@ import EmptyState from './(shared)/EmptyState';
 import ListingCard from './(shared)/Listing/ListingCard';
 
 import getCurrentUser from './actions/getCurrentUser';
-import getListings from './actions/getListings';
+import getListings, { IListingsParams } from './actions/getListings';
 
 
-export default async function Home() {
-  const listings = await getListings()
+interface HomeProps {
+  searchParams: IListingsParams
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams)
   const currentUser = await getCurrentUser()
   
 
@@ -46,3 +50,5 @@ export default async function Home() {
     </Container>
   )
 }
+
+export default Home
