@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+
+
 import Container from './(shared)/Container';
 import EmptyState from './(shared)/EmptyState';
 import ListingCard from './(shared)/Listing/ListingCard';
